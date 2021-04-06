@@ -5,7 +5,6 @@ body {
 }
 
 .watch {
-  position: relative;
   display: flex;
   align-self: center;
   justify-content: center;
@@ -16,36 +15,41 @@ body {
   border-radius: 50%;
   align-items: center;
 
-  &__dot {
-    position: absolute;
-    z-index: 1;
+  &__hands {
+    position: relative;
     width: 15px;
     height: 15px;
     background-color: cadetblue;
     border-radius: 50%;
+
+    &:after {
+      position: absolute;
+      left: 7px;
+      top: 7px;
+      width: 100px;
+      height: 2px;
+      transform: rotate(-90deg);
+      background-color: cadetblue;
+      transform-origin: left;
+      content: "";
+      animation: rotateArrow 6s forwards infinite linear;
+    }
+
+    &:before {
+      position: absolute;
+      left: 7px;
+      top: 7px;
+      z-index: -1;
+      width: 70px;
+      height: 3px;
+      transform: rotate(-90deg);
+      background-color: rgb(240, 68, 15);
+      transform-origin: left;
+      content: "";
+      animation: rotateArrow 60s forwards infinite linear;
+    }
   }
 
-  &__second {
-    position: absolute;
-    right: 50%;
-    width: 100px;
-    height: 2px;
-    transform: rotate(90deg);
-    background-color: cadetblue;
-    transform-origin: right;
-    animation: rotateArrow 6s forwards infinite linear;
-  }
-
-  &__minute {
-    position: absolute;
-    left: 34px;
-    width: 70px;
-    height: 3px;
-    transform: rotate(90deg);
-    background-color: rgb(240, 68, 15);
-    transform-origin: right;
-    animation: rotateArrow 60s forwards infinite linear;
-  }
 }
 
 @keyframes rotateArrow {
