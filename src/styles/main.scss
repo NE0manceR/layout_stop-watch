@@ -1,0 +1,55 @@
+body {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+.watch {
+  position: relative;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  padding: 4px;
+  border: 1px solid cadetblue;
+  border-radius: 50%;
+  align-items: center;
+
+  &__dot {
+    position: absolute;
+    z-index: 1;
+    width: 15px;
+    height: 15px;
+    background-color: cadetblue;
+    border-radius: 50%;
+  }
+
+  &__second {
+    position: absolute;
+    right: 50%;
+    width: 100px;
+    height: 2px;
+    transform: rotate(90deg);
+    background-color: cadetblue;
+    transform-origin: right;
+    animation: rotateArrow 6s forwards infinite linear;
+  }
+
+  &__minute {
+    position: absolute;
+    left: 34px;
+    width: 70px;
+    height: 3px;
+    transform: rotate(90deg);
+    background-color: rgb(240, 68, 15);
+    transform-origin: right;
+    animation: rotateArrow 60s forwards infinite linear;
+  }
+}
+
+@keyframes rotateArrow {
+  100% {
+    transform: rotate(450deg);
+  }
+}
